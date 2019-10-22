@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'El camino';
+  src: url('/static/font/Elcamino.woff2') format('woff2'),
+      url('/static/font/Elcamino.woff') format('woff'),
+      url('/static/font/Elcamino.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/static/font/Futura-Medium.woff2') format('woff2'),
+      url('/static/font/Futura-Medium.woff') format('woff'),
+      url('/static/font/Futura-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
+  font-size: 5rem;
 }
