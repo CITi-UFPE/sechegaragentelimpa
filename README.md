@@ -20,10 +20,8 @@
 
 
 ## Mockup
-`https://xd.adobe.com/spec/9216e825-daf7-4b25-55bf-01ca4954a630-e427/`
+<a>https://xd.adobe.com/spec/9216e825-daf7-4b25-55bf-01ca4954a630-e427/</a>
 
 ## Como rodar
-`
-1 - npm install
-2 - npm run start
-`
+1. Instale as dependências com `npm install`
+2. Rode o projeto com `npm run start`
