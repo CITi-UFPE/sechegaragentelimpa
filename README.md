@@ -17,3 +17,13 @@
     <img alt="GitHub license" src="https://img.shields.io/github/license/CITi-UFPE/nordeste-limpo">
   </a>
 </p>
+
+
+## Mockup
+`https://xd.adobe.com/spec/9216e825-daf7-4b25-55bf-01ca4954a630-e427/`
+
+## Como rodar
+`
+1 - npm install
+2 - npm run start
+`
