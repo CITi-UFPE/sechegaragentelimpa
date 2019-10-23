@@ -89,3 +89,18 @@ body {
 .share-text-section {
   margin: 30px 0px;
 }
+.cleaning-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cleaning-images {
+  width: 70%;
+  max-width: 150px;
+  margin: 20px;
+  filter: drop-shadow(2px 2px 0 #2FB4A2) drop-shadow(0px 0px 0 #2FB4A2)
+          drop-shadow(-4px 0px 0 #2FB4A2) drop-shadow(2px -2px 0 #2FB4A2);
+}
