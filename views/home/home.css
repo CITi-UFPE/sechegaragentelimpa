@@ -15,8 +15,42 @@
   font-weight: normal;
   font-style: normal;
 }
-
+:root {
+  --green: #2FB4A2;
+  --gray: #506077;
+}
 body {
-  margin: 0;
-  font-size: 5rem;
+  margin: 0 6%;
+}
+
+.campaign-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.title {
+  text-align: center;
+  font-family: 'El camino';
+  font-weight: normal;
+  color: var(--green);
+  font-size: 2.5rem;
+  width: 100%;
+}
+.text {
+  font-family: 'Futura';
+  color: var(--gray);
+  line-height: 1.3;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.map-section > .title {
+  font-size: 1.2rem;
+}
+
+@media(min-width: 768px){
+  .text {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
