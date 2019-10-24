@@ -19,12 +19,18 @@
   --green: #2FB4A2;
   --gray: #506077;
 }
+
+html{
+  margin: 0;
+}
+
 body {
   margin: 0;
   font-size: 5rem;
 }
-html{
-  margin: 0;
+
+main {
+  margin: 0 8%;
 }
 
 .campaign-section {
@@ -146,6 +152,7 @@ html{
 }
 .carousel-text{
   font-family: 'El camino';
+  font-weight: lighter;
   position: absolute;
   bottom: 35px;
   right: 430px;
