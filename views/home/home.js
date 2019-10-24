@@ -1,5 +1,3 @@
-console.log('It works!');
-
 $(document).ready(function(){
     $('.carousel').slick({
         arrows: false,
@@ -11,13 +9,27 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    $('.mosaic-carousel').slick({
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 8,
-        slidesToScroll: 1,
-        autoplay: true,
-    });
-});
+
+//Mosaic
+let lastId = 48;
+let lastModify = -1;
+
+setInterval(function setImage(){
+    let number = Math.floor((Math.random() * 48) + 1);
+
+    while (number == lastModify) {
+        number = Math.floor((Math.random() * 48) + 1);
+    }
+
+    let el = document.querySelectorAll('.mosaic-item')[number];
+
+    el.innerHTML += `<img class="mosaic-image -show" src="../../static/examples/${lastId % 8 + 1}.jpg">`;
+
+    setTimeout(function(){
+        el.querySelector('.mosaic-image').remove();
+        el.querySelector('.mosaic-image').classList.remove('-show');
+    }, 200);
+
+    lastId++;
+    lastModify = number;
+}, 750);

@@ -30,7 +30,7 @@ body {
 }
 
 main {
-  margin: 0 8%;
+  margin: 0;
 }
 
 .campaign-section {
@@ -228,10 +228,14 @@ main {
 
 
 /*///////////////// MOSAIC ///////////////////*/
+.mosaic-section {
+  position: relative;
+}
+
 .mosaic-section .mosaic-item {
   width: 12.5vw;
   height: 12.5vw;
-  background: green;
+  background: #506077;
   overflow: hidden;
   position: relative;
 }
@@ -239,11 +243,15 @@ main {
 .mosaic-section .mosaic-carousel {
   width: 100%;
   overflow: hidden;
+  display: flex;
 }
 
 .mosaic-section .mosaic-item .mosaic-image {
   height: 12.5vw;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .mosaic-section .mosaic-item-description {
@@ -272,18 +280,6 @@ main {
   line-height: 1rem;
 }
 
-.mosaic-section {
-  position: relative;
-}
-
-.mosaic-section .mosaic-border-top {
-  position: absolute;
-  top: -15px;
-  right: 0;
-  height: 25px;
-  z-index: 2;
-  overflow: hidden;
-}
 
 .mosaic-section .mosaic-border-image {
   height: 25px;
@@ -292,8 +288,41 @@ main {
   object-position: center;
 }
 
+.mosaic-section .mosaic-border-top {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  z-index: 3;
+}
+
 .mosaic-section .mosaic-border-bottom {
   position: absolute;
   right: 0;
-  bottom: -13px;
+  bottom: -30px;
+  z-index: 3;
+}
+
+.-hidden {
+  animation: fadeOut 0.4s;
+}
+
+.-show {
+  animation: fadeIn 0.4s;
+  z-index: 2;
+}
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut{
+  from {
+    opacity: 1;
+  } to {
+    opacity: 0;
+  }
 }
