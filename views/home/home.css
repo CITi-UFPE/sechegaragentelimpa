@@ -185,15 +185,19 @@ main {
   -webkit-appearance: none;
   width: 22px;
   height: 22px;
-  border-radius: 50%;
-  border: 2px solid white;
+  border: none;
+  /* border-radius: 50%; */
   font-size: 0;
-  background-color: transparent;
+  background-image: url('../../static/images/Carrossel-2.svg');
   cursor: pointer;
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
 
 }
 .slick-active button{
-  background-color: white;
+  -webkit-appearance: none;
+  background-image: url('../../static/images/Carrossel.svg');
 }
 
 /*///////////////// MOBILE ///////////////////*/
