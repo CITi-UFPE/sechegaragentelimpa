@@ -61,7 +61,7 @@ main {
 }
 
 .data-section {
-  background-image: url('/static/image/oleo-praia-al12x.png');
+  background-image: url('/static/img/oleo-praia-al12x.png');
   font-family: 'El camino';
   text-align: center;
   background-size: cover;
