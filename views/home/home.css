@@ -108,8 +108,7 @@ main {
 }
 
 .cleaning-images {
-  width: 85%;
-  max-width: 265px;
+  width: 70%;
   margin: 20px;
 }
 
@@ -244,15 +243,16 @@ main {
 .mosaic-section .mosaic-item {
   width: 12.5vw;
   height: 12.5vw;
-  background: #506077;
+  background: #707070;
   overflow: hidden;
   position: relative;
 }
 
-.mosaic-section .mosaic-carousel {
+.mosaic-section .mosaic-container {
   width: 100%;
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .mosaic-section .mosaic-item .mosaic-image {
