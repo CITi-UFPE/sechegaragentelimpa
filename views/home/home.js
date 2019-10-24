@@ -20,6 +20,32 @@ window.fbAsyncInit = () => {
 };
 
 // Slick
+let mymap = L.map('mapid').setView([-8.704159, -35.079526], 13);
+
+let myIcon = L.icon({
+    iconUrl: '../../static/image/mancha.png',
+    iconSize: [25, 20],
+});
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	maxZoom: 18,
+	id: 'mapbox.streets',
+	accessToken: 'pk.eyJ1IjoiZXVsYWxpYWFpcmVzIiwiYSI6ImNrMjR3dzFnZjAwaWwzb24zeW5oM251M2YifQ.ep0gsH5sTXA24OnvexZoKg'
+}).addTo(mymap);
+
+mymap.on('click', (e) => {
+	console.log('aqui')
+    let lat = e.latlng.lat;
+    let long = e.latlng.lng
+    let marker = L.marker([lat, long], {icon: myIcon, draggable: true}).addTo(mymap);
+    marker.bindPopup("<b>Atenção!</b><br>Derramamento de óleo.").openPopup();
+	marker.addEventListener('click',(e) => {
+		mymap.removeLayer(marker);
+    });
+	
+});
+
 $(document).ready(function(){
     $('.carousel').slick({
         arrows: false,
@@ -55,3 +81,4 @@ setInterval(function setImage(){
     lastId++;
     lastModify = number;
 }, 750);
+    
