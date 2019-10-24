@@ -236,3 +236,73 @@ main {
 .fb-login-button {
   cursor: pointer;
 }
+/*///////////////// MOSAIC ///////////////////*/
+.mosaic-section .mosaic-item {
+  width: 12.5vw;
+  height: 12.5vw;
+  background: green;
+  overflow: hidden;
+  position: relative;
+}
+
+.mosaic-section .mosaic-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.mosaic-section .mosaic-item .mosaic-image {
+  height: 12.5vw;
+  object-fit: cover;
+}
+
+.mosaic-section .mosaic-item-description {
+  height: 12.5vw;
+  width: 12.5vw;
+  background-color: #506077b2;
+  color: white;
+  font-size: 0.8rem;
+  font-family: 'El camino';
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.mosaic-section .mosaic-item-description:hover {
+  opacity: 1;
+}
+
+.mosaic-section .mosaic-item-description .mosaic-item-description-text {
+  line-height: 1rem;
+}
+
+.mosaic-section {
+  position: relative;
+}
+
+.mosaic-section .mosaic-border-top {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  height: 25px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.mosaic-section .mosaic-border-image {
+  height: 25px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mosaic-section .mosaic-border-bottom {
+  position: absolute;
+  right: 0;
+  bottom: -13px;
+}
