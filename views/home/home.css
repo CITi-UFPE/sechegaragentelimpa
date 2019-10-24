@@ -225,3 +225,14 @@ main {
     left: 32.5%;
   }
 }
+
+
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.fb-login-button {
+  cursor: pointer;
+}
