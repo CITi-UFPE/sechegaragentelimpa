@@ -20,8 +20,11 @@
   --gray: #506077;
 }
 body {
-  margin: 0 8%;
+  margin: 0;
   font-size: 5rem;
+}
+html{
+  margin: 0;
 }
 
 .campaign-section {
@@ -113,22 +116,27 @@ body {
 }
 .logo{
   position: absolute;
-  top: 12px;
+  top: 20px;
   left: 20px;
   display: flex;
-  z-index: 999;
+  z-index: 1000;
+}
+.menu{
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+  cursor: pointer;
 }
 .carousel{
+  display: flex;
   width: 100%;
   height: 100vh;
   position: relative;
-  display: flex;
   align-items: center;
   justify-content: space-around;
-}
-.slick-track{
-  width: 100%;
-  height: 100vh;
 }
 .carousel-image{
   width: 100%;
@@ -136,25 +144,79 @@ body {
   background-position: center;
   background-size: cover;
 }
+.carousel-text{
+  font-family: 'El camino';
+  position: absolute;
+  bottom: 35px;
+  right: 430px;
+  width: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1000;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+/*//////////////////// STYLE SLICK ///////////////////*/
+.slick-track{
+  width: 100%;
+  height: 100vh;
+}
 .slick-dots{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
+  width: 15%;
   list-style: none;
   padding: 0;
   margin: 0;
   position: absolute;
   bottom: 20px;
+  left: 42.5%;
 }
 .slick-dots button{
-  /* display: none; */
   -webkit-appearance: none;
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   border: 2px solid white;
   font-size: 0;
   background-color: transparent;
+  cursor: pointer;
 
+}
+.slick-active button{
+  background-color: white;
+}
+
+/*///////////////// MOBILE ///////////////////*/
+@media(max-width: 1024px){
+  .slick-dots{
+    width: 20%;
+    left: 40%;
+  }
+  .carousel-text{
+    font-size: 3rem;
+    bottom: 85px;
+    right: 215px;
+    width: 60px;
+  }
+  .menu{
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+  }
+  
+}
+@media(max-width: 768px){
+  .slick-dots{
+    width: 30%;
+    left: 35%;
+  }
+}
+@media(max-width: 320px){
+  .slick-dots{
+    width: 35%;
+    left: 32.5%;
+  }
 }
