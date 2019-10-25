@@ -30,13 +30,13 @@ body {
 }
 
 main {
-  margin: 0 8%;
+  margin: 0;
 }
 
 .campaign-section {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin: 0 8% 40px 8%;
 }
 
 .title {
@@ -56,6 +56,10 @@ main {
   font-size: 0.9rem;
 }
 
+.map-section {
+  margin: 0 8%;
+}
+
 .map-section > .title {
   font-size: 1.2rem;
 }
@@ -70,6 +74,7 @@ main {
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  margin: 0 8%;
 }
 
 .data-container{
@@ -97,8 +102,17 @@ main {
 }
 
 .share-text-section {
-  margin: 30px 0px;
+  margin: 0 8%;
 }
+
+.share-images-section {
+  margin: 40px 0;
+}
+
+.share-images-section .text p {
+  margin: 0 8% 40px 8%;
+}
+
 .cleaning-section {
   width: 100%;
   display: flex;
@@ -108,8 +122,7 @@ main {
 }
 
 .cleaning-images {
-  width: 85%;
-  max-width: 265px;
+  width: 70%;
   margin: 20px;
 }
 
@@ -235,4 +248,104 @@ main {
 
 .fb-login-button {
   cursor: pointer;
+}
+/*///////////////// MOSAIC ///////////////////*/
+.mosaic-container {
+  position: relative;
+}
+
+.mosaic-container .mosaic-item {
+  width: 12.5vw;
+  height: 12.5vw;
+  background: #707070;
+  overflow: hidden;
+  position: relative;
+}
+
+.mosaic-container .mosaic-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mosaic-container .mosaic-item .mosaic-image {
+  height: 12.5vw;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mosaic-container .mosaic-item-description {
+  height: 12.5vw;
+  width: 12.5vw;
+  background-color: #506077b2;
+  color: white;
+  font-size: 0.8rem;
+  font-family: 'El camino';
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.mosaic-container .mosaic-item-description:hover {
+  opacity: 1;
+}
+
+.mosaic-container .mosaic-item-description .mosaic-item-description-text {
+  line-height: 1rem;
+}
+
+
+.mosaic-container .mosaic-border-image {
+  height: 25px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mosaic-container .mosaic-border-top {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  z-index: 3;
+}
+
+.mosaic-container .mosaic-border-bottom {
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  z-index: 3;
+}
+
+.-hidden {
+  animation: fadeOut 0.4s;
+}
+
+.-show {
+  animation: fadeIn 0.4s;
+  z-index: 2;
+}
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut{
+  from {
+    opacity: 1;
+  } to {
+    opacity: 0;
+  }
 }
