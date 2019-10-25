@@ -15,6 +15,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 :root {
   --green: #2FB4A2;
   --gray: #506077;
@@ -29,14 +30,10 @@ body {
   font-size: 5rem;
 }
 
-main {
-  margin: 0;
-}
-
 .campaign-section {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin: 0 8% 40px 8%;
 }
 
 .title {
@@ -56,6 +53,10 @@ main {
   font-size: 0.9rem;
 }
 
+.map-section {
+  margin: 0 8%;
+}
+
 .map-section > .title {
   font-size: 1.2rem;
 }
@@ -67,6 +68,7 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   padding-top: 1px;
+  margin: 0 8%;
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -97,8 +99,16 @@ main {
 }
 
 .share-text-section {
-  margin: 30px 0px;
+  margin: 0 8%;
 }
+
+.share-images-section {
+  margin: 40px 0;
+}
+.share-images-section > .text{
+  margin: 0 8%;
+}
+
 .cleaning-section {
   width: 100%;
   display: flex;
