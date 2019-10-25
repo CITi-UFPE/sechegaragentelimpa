@@ -36,7 +36,7 @@ main {
 .campaign-section {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin: 0 8% 40px 8%;
 }
 
 .title {
@@ -56,6 +56,10 @@ main {
   font-size: 0.9rem;
 }
 
+.map-section {
+  margin: 0 8%;
+}
+
 .map-section > .title {
   font-size: 1.2rem;
 }
@@ -70,6 +74,7 @@ main {
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  margin: 0 8%;
 }
 
 .data-container{
@@ -97,8 +102,13 @@ main {
 }
 
 .share-text-section {
-  margin: 30px 0px;
+  margin: 0 8%;
 }
+
+.share-images-section {
+  margin: 40px 0;
+}
+
 .cleaning-section {
   width: 100%;
   display: flex;
