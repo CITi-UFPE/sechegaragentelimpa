@@ -236,11 +236,11 @@ main {
   cursor: pointer;
 }
 /*///////////////// MOSAIC ///////////////////*/
-.mosaic-section {
+.mosaic-container {
   position: relative;
 }
 
-.mosaic-section .mosaic-item {
+.mosaic-container .mosaic-item {
   width: 12.5vw;
   height: 12.5vw;
   background: #707070;
@@ -248,14 +248,14 @@ main {
   position: relative;
 }
 
-.mosaic-section .mosaic-container {
+.mosaic-container .mosaic-container {
   width: 100%;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
 }
 
-.mosaic-section .mosaic-item .mosaic-image {
+.mosaic-container .mosaic-item .mosaic-image {
   height: 12.5vw;
   object-fit: cover;
   position: absolute;
@@ -263,7 +263,7 @@ main {
   left: 0;
 }
 
-.mosaic-section .mosaic-item-description {
+.mosaic-container .mosaic-item-description {
   height: 12.5vw;
   width: 12.5vw;
   background-color: #506077b2;
@@ -281,30 +281,30 @@ main {
   transition: opacity .2s ease-in-out;
 }
 
-.mosaic-section .mosaic-item-description:hover {
+.mosaic-container .mosaic-item-description:hover {
   opacity: 1;
 }
 
-.mosaic-section .mosaic-item-description .mosaic-item-description-text {
+.mosaic-container .mosaic-item-description .mosaic-item-description-text {
   line-height: 1rem;
 }
 
 
-.mosaic-section .mosaic-border-image {
+.mosaic-container .mosaic-border-image {
   height: 25px;
   width: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.mosaic-section .mosaic-border-top {
+.mosaic-container .mosaic-border-top {
   position: absolute;
   top: -60px;
   right: 0;
   z-index: 3;
 }
 
-.mosaic-section .mosaic-border-bottom {
+.mosaic-container .mosaic-border-bottom {
   position: absolute;
   right: 0;
   bottom: -30px;
