@@ -109,6 +109,10 @@ main {
   margin: 40px 0;
 }
 
+.share-images-section .text p {
+  margin: 0 8% 40px 8%;
+}
+
 .cleaning-section {
   width: 100%;
   display: flex;
