@@ -46,18 +46,20 @@ app.get('/', (req, res) => {
     res.sendFile(getViewPath('home'));
 });
 
-app.post('/',(req,res) => {    
-    db.ref('positions/').push({
-         lat:req.body.lat,
-         long:req.body.long
-    });
-    
-    res.send('ok');
+app.post('/',(req,res) => {
+    const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
+    if(req.body.remove){
+        db.ref('positions/').child(key).remove()
+    } else {
+        db.ref('positions/').child(key).set({
+             lat:req.body.lat,
+             long:req.body.long
+        });
+    }
 });
 
 app.get('/positions', (req,res) => {
     db.ref('positions/').once('value').then( (snapshot) => {
-        console.log(snapshot.val());
         res.json(snapshot.val());
     });
 });

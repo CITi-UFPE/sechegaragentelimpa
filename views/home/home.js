@@ -56,7 +56,13 @@ mymap.on('click', async (e) => {
     let marker = L.marker([lat, long], {icon: myIcon, draggable: true}).addTo(mymap);
     marker.bindPopup("<b>Atenção!</b><br>Derramamento de óleo.").openPopup();
 	marker.addEventListener('click',(e) => {
-		mymap.removeLayer(marker);
+        const remove = true
+        const res = axios.post('/', {
+            remove,
+            lat,
+            long,
+        });
+        mymap.removeLayer(marker);
     });
 	
 });
