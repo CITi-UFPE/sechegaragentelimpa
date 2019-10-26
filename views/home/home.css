@@ -94,6 +94,12 @@ main {
   font-size: 2rem;
 }
 
+#mapid {
+  height: 500px;
+  width: 100%;
+  
+}
+
 @media(min-width: 768px){
   .text {
     font-size: 1rem;
@@ -125,7 +131,6 @@ main {
   width: 70%;
   margin: 20px;
 }
-
 .banner{
   position: relative;
   width: 100%;
