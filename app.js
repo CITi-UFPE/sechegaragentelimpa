@@ -46,12 +46,13 @@ app.get('/', (req, res) => {
     res.sendFile(getViewPath('home'));
 });
 
-app.post('/',(req,res) => {    
-    db.ref('positions/').push({
+app.post('/',(req,res) => {
+    const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
+    
+    db.ref('positions/').child(key).set({
          lat:req.body.lat,
          long:req.body.long
     });
-    
     res.send('ok');
 });
 
