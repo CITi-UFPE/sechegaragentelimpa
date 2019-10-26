@@ -34,10 +34,25 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	accessToken: 'pk.eyJ1IjoiZXVsYWxpYWFpcmVzIiwiYSI6ImNrMjR3dzFnZjAwaWwzb24zeW5oM251M2YifQ.ep0gsH5sTXA24OnvexZoKg'
 }).addTo(mymap);
 
-mymap.on('click', (e) => {
-	console.log('aqui')
-    let lat = e.latlng.lat;
-    let long = e.latlng.lng
+const tiles = async () => {
+    const positions = await axios.get('/positions')
+
+    Object.values(positions.data).map( (position) => {    
+        L.marker([position.lat, position.long], {icon: myIcon, draggable: true}).addTo(mymap);
+    });
+}
+
+tiles()
+
+mymap.on('click', async (e) => {
+    const lat = e.latlng.lat;
+    const long = e.latlng.lng
+    
+    const res = await axios.post('/', {
+        lat,
+        long,
+    });
+    
     let marker = L.marker([lat, long], {icon: myIcon, draggable: true}).addTo(mymap);
     marker.bindPopup("<b>Atenção!</b><br>Derramamento de óleo.").openPopup();
 	marker.addEventListener('click',(e) => {
