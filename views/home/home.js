@@ -80,6 +80,7 @@ $(document).ready(function(){
 
 
 //Mosaic
+/*
 let lastId = 48;
 let lastModify = -1;
 
@@ -102,4 +103,4 @@ setInterval(function setImage(){
     lastId++;
     lastModify = number;
 }, 750);
-    
+*/
