@@ -404,13 +404,16 @@ main {
 /*///////////////// FOOTER ///////////////////*/
 .footer-section .footer-waves {
   height: 180px;
+  width: 250%;
+  transform: scale(0.4, 0.8);
+  transform-origin: bottom left;
 }
 
 .footer-section .footer-content {
   display: flex;
   justify-content: space-evenly;
   background-color: #2EB3A1;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 .footer-section .footer-content-network {
@@ -418,7 +421,7 @@ main {
   font-family: 'Futura';
   text-decoration: none;
   color: #3E4142;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .footer-section .footer-credits-description {
@@ -439,6 +442,11 @@ main {
 }
 
 @media(min-width: 768px){
+  .footer-section .footer-waves {
+    width: 100%;
+    transform: scale(1, 1);
+  }
+
   .footer-section .footer-content {
     flex-direction: column;
     padding: 0 8% 15px 8%;
