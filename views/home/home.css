@@ -178,6 +178,22 @@ main {
   text-align: right;
 }
 
+.carousel-border {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: -58px;
+  z-index: 3;
+  transform: scale(-1);
+}
+
+.carousel-border-image {
+  width: 100%;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /*//////////////////// STYLE SLICK ///////////////////*/
 .slick-track{
   width: 100%;
@@ -236,6 +252,10 @@ main {
     width: 30%;
     left: 35%;
   }
+
+  .carousel-border-image {
+    height: 30px;
+  }
 }
 @media(max-width: 320px){
   .slick-dots{
@@ -254,6 +274,8 @@ main {
 .fb-login-button {
   cursor: pointer;
 }
+
+
 /*///////////////// MOSAIC ///////////////////*/
 .mosaic-container {
   position: relative;
@@ -271,6 +293,7 @@ main {
   width: 100%;
   overflow: hidden;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -310,25 +333,63 @@ main {
 
 
 .mosaic-container .mosaic-border-image {
-  height: 25px;
   width: 100%;
+  height: 30px;
   object-fit: cover;
   object-position: center;
 }
 
 .mosaic-container .mosaic-border-top {
+  width: 100%;
   position: absolute;
-  top: -60px;
+  top: -62px;
   right: 0;
   z-index: 3;
 }
 
 .mosaic-container .mosaic-border-bottom {
+  width: 100%;
   position: absolute;
   right: 0;
-  bottom: -30px;
+  bottom: -62px;
   z-index: 3;
+  transform: scale(-1);
 }
+
+
+@media(min-width: 768px){
+  .mosaic-container .mosaic-container {
+    width: 100%;
+    background-color: #707070;
+  }
+
+  .mosaic-container .mosaic-item {
+    width: 8.33%;
+    height: 8.33vw;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .mosaic-container .mosaic-image {
+    outline: 1px solid #707070;
+    outline-offset: -1px;
+  }
+
+  .mosaic-container .mosaic-border-image {
+    height: 50px;
+  }
+
+  .mosaic-container .mosaic-border-top {
+    top: -58px;
+  }
+
+  .mosaic-container .mosaic-border-bottom {
+    bottom: -58px;
+    z-index: 3;
+  }
+}
+
+
 
 .-hidden {
   animation: fadeOut 0.4s;
@@ -339,6 +400,8 @@ main {
   z-index: 2;
 }
 
+
+/*///////////////// ANIMATION ///////////////////*/
 @keyframes fadeIn{
   from {
     opacity: 0;
