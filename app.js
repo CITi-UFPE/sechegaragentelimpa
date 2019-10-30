@@ -46,6 +46,7 @@ app.get('/', (req, res) => {
     res.sendFile(getViewPath('home'));
 });
 
+<<<<<<< HEAD
 app.post('/', async (req, res) => {
   try {
       const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
@@ -63,6 +64,22 @@ app.post('/', async (req, res) => {
       console.log(err);
       res.status(500).send(err);
   }
+=======
+app.get('/politica-de-privacidade', (req, res) => {
+    res.sendFile(getViewPath('politica-de-privacidade'));
+});
+
+app.post('/',(req,res) => {
+    const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
+    if(req.body.remove){
+        db.ref('positions/').child(key).remove()
+    } else {
+        db.ref('positions/').child(key).set({
+             lat:req.body.lat,
+             long:req.body.long
+        });
+    }
+>>>>>>> página de política de privacidade
 });
 
 // db.ref('positions').set(''); 
