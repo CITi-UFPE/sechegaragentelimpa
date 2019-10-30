@@ -59,9 +59,31 @@ app.post('/',(req,res) => {
 });
 
 app.get('/positions', (req,res) => {
-    db.ref('positions/').once('value').then( (snapshot) => {
+    db.ref('positions/').once('value').then((snapshot) => {
         res.json(snapshot.val());
     });
+});
+
+app.post('/user', async (req, res) => {
+    try {
+        const { 
+            id,
+            img,
+            name,
+        } = req.body;
+    
+        await db.ref('users/').child(id).set({
+            img,
+            name,
+        });
+    } catch (err) {
+        res.send(err);
+    }
+});
+
+app.get('/users', async (req, res) => {
+    const snapshot = await db.ref('users/').once('value');
+    res.send(snapshot.val());
 });
 
 // ==================== START SERVER ==================== //
