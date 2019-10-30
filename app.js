@@ -65,7 +65,7 @@ app.post('/', async (req, res) => {
   }
 });
 
-// db.ref('positions').set(''); delete full db
+// db.ref('positions').set(''); 
 
 app.get('/positions', (req,res) => {
     db.ref('positions/').once('value').then((snapshot) => {
