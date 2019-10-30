@@ -63,6 +63,8 @@ app.post('/', async (req, res) => {
       console.log(err);
       res.status(500).send(err);
   }
+});
+
 app.get('/politica-de-privacidade', (req, res) => {
     res.sendFile(getViewPath('politica-de-privacidade'));
 });
