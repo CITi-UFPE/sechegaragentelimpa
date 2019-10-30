@@ -46,17 +46,26 @@ app.get('/', (req, res) => {
     res.sendFile(getViewPath('home'));
 });
 
-app.post('/',(req,res) => {
-    const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
-    if(req.body.remove){
-        db.ref('positions/').child(key).remove()
-    } else {
-        db.ref('positions/').child(key).set({
-             lat:req.body.lat,
-             long:req.body.long
-        });
-    }
+app.post('/', async (req, res) => {
+  try {
+      const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
+      if (req.body.remove) {
+          await db.ref('positions/').child(key).remove();
+          res.send('deleted');
+      } else {
+          await db.ref('positions/').child(key).set({
+              lat: req.body.lat,
+              long: req.body.long
+          });
+          res.send('created');
+      }
+  } catch (err) {
+      console.log(err);
+      res.status(500).send(err);
+  }
 });
+
+db.ref('positions').set('');
 
 app.get('/positions', (req,res) => {
     db.ref('positions/').once('value').then((snapshot) => {
