@@ -121,16 +121,35 @@ main {
 
 .cleaning-section {
   width: 100%;
+  height: 610px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+}
+.div-cleaning {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
 }
 
-.cleaning-images {
+.cleaning-images-1 {
   width: 70%;
+  max-width: 250px;
   margin: 20px;
 }
+
+.cleaning-images-2 {
+  width: 70%;
+  max-width: 250px;
+  margin: 20px;
+}
+
 .banner{
   position: relative;
   width: 100%;
@@ -442,6 +461,7 @@ main {
 }
 
 @media(min-width: 768px){
+
   .footer-section .footer-waves {
     width: 100%;
     transform: scale(1, 1);
@@ -479,7 +499,30 @@ main {
   }
 }
 
-
+@media (min-width: 950px) {
+  .div-cleaning {
+    width: 100%;
+    max-width: 1050px;
+    height: 87%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .cleaning-images-1 {
+    position: absolute;
+    top: 5%;
+    left: 17%;
+    max-width: 350px;
+  }
+  .cleaning-images-2 {
+    position: absolute;
+    bottom: -5%;
+    right: 17%;
+    max-width: 350px;
+  }
+}
 
 
 /*///////////////// ANIMATION ///////////////////*/
