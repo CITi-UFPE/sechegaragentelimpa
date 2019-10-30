@@ -26,6 +26,15 @@ const gel = el => document.querySelector(el);
 //   });
 // };
 
+window.problemsChange = async (el) => {
+  await axios.post('/?problem=true', { 
+    problem: el.value,
+    lat: el.getAttribute('datalat'),
+    long: el.getAttribute('datalong'),
+  });
+  // TODO: pants, feche o modal
+}
+
 
 // Slick
 let mymap = L.map('mapid').setView([-8.704159, -35.079526], 13);
@@ -74,7 +83,17 @@ mymap.on('click', async (e) => {
   });
 
   let marker = L.marker([lat, long], { icon: myIcon, draggable: true }).addTo(mymap);
-  marker.bindPopup("<b>Atenção!</b><br>Derramamento de óleo.").openPopup();
+  document.querySelector('body').innerHTML += `
+  O que você precisa?
+  <br>
+  <br>
+  <select id="problems-select" onchange="window.problemsChange(this)" datalat="${lat}" datalong="${long}">
+    <option value="" disabled selected>Selecione</option>
+    <option value="transporte">Transporte</option>
+    <option value="pessoas">Pessoas</option>
+    <option value="epi">EPI</option>
+  </select>
+  `;
   marker.addEventListener('click', (e) => {
     const remove = true;
 
