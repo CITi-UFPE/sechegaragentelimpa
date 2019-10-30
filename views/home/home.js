@@ -1,6 +1,6 @@
 const gel = el => document.querySelector(el);
 
-window.fbAsyncInit = () => {
+window.fbAsyncInit = async () => {
 	FB.init({
 		appId: '1329423883914707',
 		autoLogAppEvents: true,
@@ -12,12 +12,18 @@ window.fbAsyncInit = () => {
 			if (!res || !res.authResponse) return;
 			const id = res.authResponse.userID;
 			const userImgSrc = `https://graph.facebook.com/${id}/picture?type=normal`;
-			FB.api(id, (res) => {
-				const userName = res.name;
+			FB.api(id, async (res) => {
+                const userName = res.name;
+                const response = await axios.post('/user', {
+                    id: id,
+                    img: userImgSrc,
+                    name: userName,
+                });
 			});
 		});
 	});
 };
+
 
 // Slick
 let mymap = L.map('mapid').setView([-8.704159, -35.079526], 13);
@@ -94,7 +100,7 @@ setInterval(function setImage(){
     let el = document.querySelectorAll('.mosaic-item')[number];
 
     el.innerHTML += `<img class="mosaic-image -show" src="../../static/examples/${lastId % 8 + 1}.jpg">`;
-
+  
     setTimeout(function(){
         el.querySelector('.mosaic-image').remove();
         el.querySelector('.mosaic-image').classList.remove('-show');
