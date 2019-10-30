@@ -1,5 +1,4 @@
 const gel = el => document.querySelector(el);
-const toasty = new Toasty();
 
 window.fbAsyncInit = async () => {
 	FB.init({
