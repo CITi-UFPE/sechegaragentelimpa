@@ -49,7 +49,7 @@ const tiles = async () => {
     const marker = L.marker([position.lat, position.long], { icon: myIcon, draggable: true }).addTo(mymap);
     marker.addEventListener('click', (e) => {
       const remove = true;
-  
+
       const res = axios.post('/', {
         remove,
         lat: marker._latlng.lat,
