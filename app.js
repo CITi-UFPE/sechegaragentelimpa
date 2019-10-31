@@ -3,7 +3,9 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const firebase = require('firebase');
+const { db } = require('./providers/firebase.db');
+
+const userRoute = require('./routes/users.route');
 
 require('dotenv').config();
 
@@ -25,19 +27,6 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 // returns the full path of the passed view
 const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
 
-// ==================== DATABASE ==================== //
-firebase.initializeApp({
-    apiKey: "AIzaSyA9S4Wy6neP65df7tW3t-QejHbxDOsXfH8",
-    authDomain: "sechegaragentelimpa-9d9d0.firebaseapp.com",
-    databaseURL: "https://sechegaragentelimpa-9d9d0.firebaseio.com",
-    projectId: "sechegaragentelimpa-9d9d0",
-    storageBucket: "sechegaragentelimpa-9d9d0.appspot.com",
-    messagingSenderId: "372909306254",
-    appId: "1:372909306254:web:66b0febebba812852af4df",
-    measurementId: "G-YX93175YCL"
-  })
-  
-  const db = firebase.database();
 // ==================== ROUTES ==================== //
 
 // ==================== RENDER VIEWS ==================== //
@@ -64,28 +53,7 @@ app.get('/positions', (req,res) => {
     });
 });
 
-app.post('/user', async (req, res) => {
-    try {
-        const { 
-            id,
-            img,
-            name,
-        } = req.body;
-    
-        await db.ref('users/').child(id).set({
-            img,
-            name,
-        });
-    } catch (err) {
-        res.send(err);
-    }
-});
-
-app.get('/users', async (req, res) => {
-    const snapshot = await db.ref('users/').once('value');
-    res.send(snapshot.val());
-});
-
+app.use('/users/', userRoute);
 // ==================== START SERVER ==================== //
 
 app.listen(process.env.PORT, () => {
