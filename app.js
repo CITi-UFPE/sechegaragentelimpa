@@ -3,9 +3,6 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const { db } = require('./providers/firebase.db');
-
-const userRoute = require('./routes/users.route');
 
 require('dotenv').config();
 
@@ -29,31 +26,15 @@ const getViewPath = view => path.join(__dirname, `views/${view}/${view}.html`);
 
 // ==================== ROUTES ==================== //
 
+app.use('/api/users', require('./routes/users'));
+app.use('/api/positions', require('./routes/positions'));
+
 // ==================== RENDER VIEWS ==================== //
 
 app.get('/', (req, res) => {
     res.sendFile(getViewPath('home'));
 });
 
-app.post('/',(req,res) => {
-    const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
-    if(req.body.remove){
-        db.ref('positions/').child(key).remove()
-    } else {
-        db.ref('positions/').child(key).set({
-             lat:req.body.lat,
-             long:req.body.long
-        });
-    }
-});
-
-app.get('/positions', (req,res) => {
-    db.ref('positions/').once('value').then((snapshot) => {
-        res.json(snapshot.val());
-    });
-});
-
-app.use('/users/', userRoute);
 // ==================== START SERVER ==================== //
 
 app.listen(process.env.PORT, () => {

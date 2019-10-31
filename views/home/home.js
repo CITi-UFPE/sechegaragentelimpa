@@ -14,7 +14,7 @@ window.fbAsyncInit = async () => {
 			const userImgSrc = `https://graph.facebook.com/${id}/picture?type=normal`;
 			FB.api(id, async (res) => {
                 const userName = res.name;
-                const response = await axios.post('/user', {
+                const response = await axios.post('/api/users', {
                     id: id,
                     img: userImgSrc,
                     name: userName,
@@ -41,7 +41,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 const tiles = async () => {
-    const positions = await axios.get('/positions')
+    const positions = await axios.get('/api/positions');
 
     Object.values(positions.data).map( (position) => {    
         L.marker([position.lat, position.long], {icon: myIcon, draggable: true}).addTo(mymap);
@@ -54,7 +54,7 @@ mymap.on('click', async (e) => {
     const lat = e.latlng.lat;
     const long = e.latlng.lng
     
-    const res = await axios.post('/', {
+    const res = await axios.post('/api/positions', {
         lat,
         long,
     });
