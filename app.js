@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const firebase = require('firebase');
+const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
 
 require('dotenv').config();
 
@@ -42,17 +43,7 @@ const db = firebase.database();
 
 // ==================== RENDER VIEWS ==================== //
 
-app.use((req, res, next) => {
-  try {
-    console.log(req.protocol);
-    if (req.protocol === 'http') {
-      res.redirect('https://' + req.headers.host + req.url);
-    }
-  } catch (err) {
-    console.log(err);
-    res.status(500).send(err);
-  }
-});
+app.use(redirectToHTTPS());
 
 app.get('/', (req, res) => {
   try {
