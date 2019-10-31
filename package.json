@@ -17,10 +17,13 @@
     "dotenv": "^8.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-session": "^1.17.0",
     "firebase": "^7.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.5",
-    "nodemailer": "^6.3.1"
+    "nodemailer": "^6.3.1",
+    "passport": "0.2.1",
+    "passport-facebook": "latest"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
