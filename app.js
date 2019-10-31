@@ -44,6 +44,7 @@ const db = firebase.database();
 
 app.use((req, res, next) => {
   try {
+    console.log(req.protocol);
     if (req.protocol === 'http') {
       res.redirect('https://' + req.headers.host + req.url);
     }
