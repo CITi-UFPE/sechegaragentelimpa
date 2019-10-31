@@ -317,7 +317,7 @@ main {
 }
 
 .mosaic-container .mosaic-item .mosaic-image {
-  height: 12.5vw;
+  height: 100%;
   object-fit: cover;
   position: absolute;
   top: 0;

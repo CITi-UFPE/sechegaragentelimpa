@@ -1,5 +1,7 @@
 const gel = el => document.querySelector(el);
 
+// const gel = el => document.querySelector(el);
+
 // window.fbAsyncInit = async () => {
 //   FB.init({
 //     appId: '1329423883914707',
@@ -95,6 +97,77 @@ $(document).ready(function () {
     slidesToShow: 1,
     slidesToScroll: 1,
   });
+
+  //carrega imagens
+  var ref = firebase.database().ref("users");
+  ref.on("child_added", function(snapshot) {
+    $("#add-mosaic-images").append("<div class=\"mosaic-item\"><img title=\""+snapshot.val().name+"\" class=\"mosaic-image\" src=\""+snapshot.val().profile_picture+"?type=normal\"></div>");
+  });
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // [START_EXCLUDE]
+      document.getElementById('login-btn').hidden = true;
+      document.getElementById('logout-btn').hidden = false;
+      var ref = firebase.database().ref('users/' + user.uid);
+      ref.set({
+          name: user.displayName,
+          email: user.email,
+          profile_picture: user.photoURL
+        });
+        console.log(user);
+      // [END_EXCLUDE]
+    } else {
+      // User is signed out.
+      // [START_EXCLUDE]
+      document.getElementById('login-btn').hidden = false;
+      document.getElementById('logout-btn').hidden = true;
+      // [END_EXCLUDE]
+    }
+  });
+});
+
+document.querySelector('#login-btn').addEventListener('click', function(e) {
+  firebase.auth().signOut();
+  e.preventDefault();
+  e.stopPropagation();
+
+  var provider = new firebase.auth.FacebookAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+
+      let userRef = firebase.database.ref('users/' + user.uid);
+      userRef.child(
+        user.uid).set({
+          name: user.displayName,
+          email: user.email,
+          profile_picture: user.photoURL
+        });
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  // Step 2
+  //  Get a credential with firebase.auth.emailAuthProvider.credential(emailInput.value, passwordInput.value)
+  //  If there is no current user, log in with auth.signInWithCredential(credential)
+  //  If there is a current user an it's anonymous, atttempt to link the new user with firebase.auth().currentUser.link(credential) 
+  //  The user link will fail if the user has already been created, so catch the error and sign in.
+});
+
+document.querySelector('#logout-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  firebase.auth().signOut();
 });
 
 
