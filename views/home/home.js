@@ -101,8 +101,7 @@ $(document).ready(function () {
   //carrega imagens
   var ref = firebase.database().ref("users");
   ref.on("child_added", function(snapshot) {
-    $("#add-mosaic-images").append("<div class=\"mosaic-item\"><img title=\""+snapshot.val().name+"\" class=\"mosaic-image\" src=\""+snapshot.val().profile_picture+"\"></div>");
-    console.log(snapshot.key + " was " + snapshot.val().name);
+    $("#add-mosaic-images").append("<div class=\"mosaic-item\"><img title=\""+snapshot.val().name+"\" class=\"mosaic-image\" src=\""+snapshot.val().profile_picture+"?type=normal\"></div>");
   });
 
   firebase.auth().onAuthStateChanged(function(user) {
@@ -116,6 +115,7 @@ $(document).ready(function () {
           email: user.email,
           profile_picture: user.photoURL
         });
+        console.log(user);
       // [END_EXCLUDE]
     } else {
       // User is signed out.
