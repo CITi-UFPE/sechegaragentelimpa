@@ -1,8 +1,5 @@
 const gel = el => document.querySelector(el);
 
-if (window.location.href.indexOf('https://') === -1)
-  window.location.replace('https://sechegaragentelimpa.com.br')
-
 // window.fbAsyncInit = async () => {
 //   FB.init({
 //     appId: '1329423883914707',
