@@ -26,14 +26,7 @@ const gel = el => document.querySelector(el);
 //   });
 // };
 
-window.problemsChange = async (el) => {
-  await axios.post('/?problem=true', { 
-    problem: el.value,
-    lat: el.getAttribute('datalat'),
-    long: el.getAttribute('datalong'),
-  });
-  // TODO: pants, feche o modal
-}
+
 
 
 // Slick
@@ -71,13 +64,26 @@ const tiles = async () => {
 
 tiles()
 
+window.saveMarker = async (lat, long) => {
+  const val = document.querySelectorAll("input[type=checkbox]:checked")
+  let list = []
+  if(val.length > 0){
+    for(var i of val){
+      list.push(i.name)
+    }
+    await axios.post('/?problem=true', { 
+      item: list,
+      lat: lat,
+      long: long,
+    });
+  } else {
+    // TODO: mensagem de erro
+  }
+}
+
 mymap.on('click', async (e) => {
   const lat = e.latlng.lat;
   const long = e.latlng.lng
-  const res = await axios.post('/', {
-      lat,
-      long,
-    });
 
   let marker = L.marker([lat, long], { icon: myIcon, draggable: true }).addTo(mymap);
   marker.bindPopup(`
@@ -88,16 +94,19 @@ mymap.on('click', async (e) => {
       <label for="pessoas">Pessoas</label>
       <input type="checkbox" class="checkbox" name="epi">
       <label for="epi">Equipamento de proteção Individual</label>
-      <input type="checkbox" class="checkbox" name="Transporte">
+      <input type="checkbox" class="checkbox" name="transporte">
       <label for="transporte">Transporte</label>
     </div>
-    <button id="modal-send-button">Enviar</button>
+    <button id="modal-send-button" onclick="window.saveMarker(${lat}, ${long})">Enviar</button>
   </div>
   `).openPopup();
 
-  // document.querySelector('.map-section').innerHTML += `
+  // Fecha Popup
+  const submitButton = document.getElementById('modal-send-button')
+  L.DomEvent.addListener(submitButton, 'click', function (e) {
+    marker.closePopup();
+  });
   
-  // `;
   marker.addEventListener('click', (e) => {
     const remove = true;
 
