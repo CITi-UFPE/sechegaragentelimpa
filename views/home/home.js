@@ -1,5 +1,8 @@
 const gel = el => document.querySelector(el);
 
+if (window.location.href.indexOf('https://') === -1)
+  window.location.replace('https://sechegaragentelimpa.com.br')
+
 // window.fbAsyncInit = async () => {
 //   FB.init({
 //     appId: '1329423883914707',
@@ -47,7 +50,7 @@ const tiles = async () => {
     const marker = L.marker([position.lat, position.long], { icon: myIcon, draggable: true }).addTo(mymap);
     marker.addEventListener('click', (e) => {
       const remove = true;
-  
+
       const res = axios.post('/', {
         remove,
         lat: marker._latlng.lat,
