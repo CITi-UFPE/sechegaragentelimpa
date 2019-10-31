@@ -418,8 +418,30 @@ main {
   z-index: 2;
 }
 
+.modal {
+  font-size: 1rem;
+  color: var(--gray);
+  font-family: 'Futura';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.modal-checkbox {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  line-height: 1.0;
+}
 
+#modal-send-button{
+  background-color: var(--green);
+  color: #FFFFFF;
+  border: none;
+  padding: 5px 15px 13px;
+  font-family: 'Futura';
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
 /*///////////////// FOOTER ///////////////////*/
 .footer-section .footer-waves {
   height: 180px;

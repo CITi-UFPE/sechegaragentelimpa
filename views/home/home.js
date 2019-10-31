@@ -74,26 +74,30 @@ tiles()
 mymap.on('click', async (e) => {
   const lat = e.latlng.lat;
   const long = e.latlng.lng
-
-  console.log('yay');
-
   const res = await axios.post('/', {
-    lat,
-    long,
-  });
+      lat,
+      long,
+    });
 
   let marker = L.marker([lat, long], { icon: myIcon, draggable: true }).addTo(mymap);
-  document.querySelector('body').innerHTML += `
-  O que você precisa?
-  <br>
-  <br>
-  <select id="problems-select" onchange="window.problemsChange(this)" datalat="${lat}" datalong="${long}">
-    <option value="" disabled selected>Selecione</option>
-    <option value="transporte">Transporte</option>
-    <option value="pessoas">Pessoas</option>
-    <option value="epi">EPI</option>
-  </select>
-  `;
+  marker.bindPopup(`
+  <div class="modal">
+    <p class="modal-title">Do que você precisa?</p>
+    <div class="modal-checkbox">
+      <input type="checkbox" class="checkbox" name="pessoas">
+      <label for="pessoas">Pessoas</label>
+      <input type="checkbox" class="checkbox" name="epi">
+      <label for="epi">Equipamento de proteção Individual</label>
+      <input type="checkbox" class="checkbox" name="Transporte">
+      <label for="transporte">Transporte</label>
+    </div>
+    <button id="modal-send-button">Enviar</button>
+  </div>
+  `).openPopup();
+
+  // document.querySelector('.map-section').innerHTML += `
+  
+  // `;
   marker.addEventListener('click', (e) => {
     const remove = true;
 
