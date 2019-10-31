@@ -1,27 +1,27 @@
 const gel = el => document.querySelector(el);
 
 window.fbAsyncInit = async () => {
-  FB.init({
-    appId: '1329423883914707',
-    autoLogAppEvents: true,
-    xfbml: true,
-    version: 'v1.0'
-  });
-  gel('.fb-login-button').addEventListener('click', () => {
-    FB.login((res) => {
-      if (!res || !res.authResponse) return;
-      const id = res.authResponse.userID;
-      const userImgSrc = `https://graph.facebook.com/${id}/picture?type=normal`;
-      FB.api(id, async (res) => {
-        const userName = res.name;
-        const response = await axios.post('/user', {
-          id: id,
-          img: userImgSrc,
-          name: userName,
-        });
-      });
-    });
-  });
+	FB.init({
+		appId: '1329423883914707',
+		autoLogAppEvents: true,
+		xfbml: true,
+		version: 'v1.0'
+	});
+	gel('.fb-login-button').addEventListener('click', () => {
+		FB.login((res) => {
+			if (!res || !res.authResponse) return;
+			const id = res.authResponse.userID;
+			const userImgSrc = `https://graph.facebook.com/${id}/picture?type=normal`;
+			FB.api(id, async (res) => {
+         const userName = res.name;
+         const response = await axios.post('/api/users', {
+            id: id,
+            img: userImgSrc,
+            name: userName,
+         });
+			});
+		});
+	});
 };
 
 
@@ -41,7 +41,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 const tiles = async () => {
-  const positions = await axios.get('/positions')
+  const positions = await axios.get('/api/positions');
 
   Object.values(positions.data).map((position) => {
     const marker = L.marker([position.lat, position.long], { icon: myIcon, draggable: true }).addTo(mymap);
@@ -62,11 +62,9 @@ tiles()
 
 mymap.on('click', async (e) => {
   const lat = e.latlng.lat;
-  const long = e.latlng.lng
+  const long = e.latlng.lng;
 
-  console.log('yay');
-
-  const res = await axios.post('/', {
+  const res = await axios.post('/api/positions', {
     lat,
     long,
   });
