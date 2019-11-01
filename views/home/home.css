@@ -154,6 +154,7 @@ main {
   position: relative;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 .logo{
   position: absolute;
@@ -170,6 +171,14 @@ main {
   width: 34px;
   z-index: 999;
   cursor: pointer;
+}
+.wave-banner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+  overflow: hidden;
 }
 .carousel{
   display: flex;
@@ -188,15 +197,31 @@ main {
   font-family: 'El camino';
   font-weight: lighter;
   position: absolute;
-  bottom: 35px;
-  right: 8%;
+  bottom: 30%;
+  left: 20px;
+  font-size: 7rem;
   display: flex;
   flex-wrap: wrap;
   z-index: 1000;
   color: #FFFFFF;
   text-align: right;
 }
-
+.carousel-description {
+  font-family: 'Futura';
+  font-weight: normal;
+  position: absolute;
+  bottom: 13%;
+  left: 20px;
+  font-size: 1.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1000;
+  color: #FFFFFF;
+  width: 45%;
+}
+.carousel-description>span {
+  margin-bottom: 20px;
+}
 .carousel-border {
   width: 100%;
   position: absolute;
@@ -229,6 +254,7 @@ main {
   position: absolute;
   bottom: 20px;
   left: 42.5%;
+  z-index: 5;
 }
 .slick-dots button{
   -webkit-appearance: none;
@@ -258,7 +284,11 @@ main {
 
   .carousel-text{
     font-size: 3rem;
-    bottom: 85px;
+    bottom: 40%;
+  }
+  .carousel-description{
+    font-size: 1.1rem;
+    width: 90%;
   }
   .menu{
     top: 40px;

@@ -228,3 +228,27 @@ setInterval(function setImage(){
     lastModify = number;
 }, 750);
 */
+
+  const morphingWaveTop = anime({
+    targets: '#wave_top',
+    d: [
+      { value: 'M293.4,0s67.737,197.576,228.878,338.194,261.848,136.94,372.442,248.294,43.241,213.129,43.241,213.129H-1.52V0' }
+    ],
+    easing: 'linear',
+    duration: 2000,
+    loop: true,
+    direction: 'alternate',
+    autoplay: true
+  });
+
+  const morphingWaveBottom = anime({
+    targets: '#wave_bottom',
+    d: [
+      { value: 'M293.4,0s82.226,185.392,243.367,326.01S765.351,487.977,875.945,599.331s62.012,200.287,62.012,200.287H-1.52V0' }
+    ],
+    easing: 'linear',
+    duration: 2000,
+    loop: true,
+    direction: 'alternate',
+    autoplay: true
+  });
