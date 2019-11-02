@@ -45,6 +45,19 @@ const db = firebase.database();
 
 // app.use(redirectToHTTPS());
 
+
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV === 'production') {
+      if (req.headers.host === 'sechegaragentelimpa.herokuapp.com')
+          return res.redirect(301, 'https://www.sechegaragentelimpa.com.br');
+      if (req.headers['x-forwarded-proto'] !== 'https')
+          return res.redirect('https://' + req.headers.host + req.url);
+      else
+          return next();
+  } else
+      return next();
+});
+
 app.get('/', (req, res) => {
   try {
     res.sendFile(getViewPath('home'));
