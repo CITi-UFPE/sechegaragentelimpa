@@ -175,9 +175,12 @@ main {
   display: flex;
   width: 100%;
   height: 100vh;
-  position: relative;
   align-items: center;
   justify-content: space-around;
+}
+
+.carousel-wrapper{
+  position:relative;
 }
 .carousel-image{
   width: 100%;
@@ -188,13 +191,15 @@ main {
   font-family: 'El camino';
   font-weight: lighter;
   position: absolute;
-  bottom: 35px;
-  right: 8%;
+  bottom: 5%;
+  right: 2%;
+  width: 35%;
   display: flex;
   flex-wrap: wrap;
   z-index: 1000;
   color: #FFFFFF;
   text-align: right;
+  font-size: 4rem;
 }
 
 .carousel-border {
@@ -258,7 +263,11 @@ main {
 
   .carousel-text{
     font-size: 3rem;
-    bottom: 85px;
+    bottom: 0px;
+    width:auto;
+    right:2%;
+    left:2%;
+    bottom:5%;
   }
   .menu{
     top: 40px;
