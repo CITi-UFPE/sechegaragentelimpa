@@ -49,15 +49,24 @@ const tiles = async () => {
 
   Object.values(positions.data).map((position) => {
     const marker = L.marker([position.lat, position.long], { icon: myIcon, draggable: true }).addTo(mymap);
+    marker.bindPopup(`
+    <div class="modal">
+      Essa região precisa de:
+      <ul>
+      ${position.list.map((item) => `<li>${item}</li>`).join('')}
+      </ul>
+    </div>
+    `)
     marker.addEventListener('click', (e) => {
-      const remove = true;
+      marker.openPopup();
+      // const remove = true;
 
-      const res = axios.post('/', {
-        remove,
-        lat: marker._latlng.lat,
-        long: marker._latlng.lng,
-      });
-      mymap.removeLayer(marker);
+      // const res = axios.post('/', {
+      //   remove,
+      //   lat: marker._latlng.lat,
+      //   long: marker._latlng.lng,
+      // });
+      // mymap.removeLayer(marker);
     });
   });
 }
@@ -72,7 +81,7 @@ window.saveMarker = async (lat, long) => {
       list.push(i.name)
     }
     await axios.post('/?problem=true', { 
-      item: list,
+      list: list,
       lat: lat,
       long: long,
     });
