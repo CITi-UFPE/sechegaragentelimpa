@@ -442,7 +442,7 @@ main {
   line-height: 1.0;
 }
 
-#modal-send-button{
+#modal-button{
   background-color: var(--green);
   color: #FFFFFF;
   border: none;
@@ -451,6 +451,12 @@ main {
   font-size: 0.9rem;
   margin-top: 10px;
 }
+
+.list {
+  padding-left: 20px
+}
+
+
 /*///////////////// FOOTER ///////////////////*/
 .footer-section .footer-waves {
   height: 180px;
