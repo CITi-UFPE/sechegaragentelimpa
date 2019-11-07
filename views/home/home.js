@@ -98,6 +98,8 @@ $(document).ready(function () {
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 10000,
   });
 });
 
@@ -228,3 +230,49 @@ setInterval(function setImage(){
     lastModify = number;
 }, 750);
 */
+
+  const morphingWaveTop = anime({
+    targets: '#wave_top',
+    d: [
+      { value: 'M293.4,0s47.65,159.048,208.79,299.665,200.6,173.493,311.191,284.847,205.814,215.693,205.814,215.693L-1.52,799.617V0' },
+      { value: 'M293.4,0s34.477,168.927,195.618,309.544,246.7,158.674,357.293,270.028,172.884,220.633,172.884,220.633L-1.52,799.617V0' },
+    ],
+    easing: 'easeInOutSine',
+    duration: 3000,
+    loop: true,
+    direction: 'alternate',
+    autoplay: true
+  });
+
+  const morphingColorTop = anime({
+    targets: '#wave_top',
+    fill: 'rgba(0,0,0,0.48)',
+    delay: 7000,
+    loop: true,
+    direction: 'alternate',
+    duration: 5000,
+    autoplay: true
+  })
+
+
+  const morphingWaveBottom = anime({
+    targets: '#wave_bottom',
+    d: [
+      { value: 'M293.4,0s24.927,186.874,186.068,327.491,236.491,130.848,347.085,242.2,192.642,230.512,192.642,230.512L-1.52,799.617V0' },
+    ],
+    easing: 'easeInOutSine',
+    duration: 2000,
+    loop: true,
+    direction: 'alternate',
+    autoplay: true
+  });
+
+  const morphingColorBottom = anime({
+    targets: '#wave_bottom',
+    fill: 'rgba(0,0,0,0.48)',
+    delay: 7000,
+    loop: true,
+    direction: 'alternate',
+    duration: 5000,
+    autoplay: true
+  })
