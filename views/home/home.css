@@ -124,7 +124,7 @@ main {
   height: 475px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   position: relative;
 }
@@ -172,13 +172,17 @@ main {
   z-index: 999;
   cursor: pointer;
 }
-.wave-banner{
+.waves{
+  width: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 2;
   height: 100vh;
-  overflow: hidden;
+  min-width: 1000px;
+}
+.wave{
+  position: absolute;
+  height: auto;
+  min-height: 100%;
 }
 .carousel{
   display: flex;
