@@ -211,8 +211,6 @@ main {
   flex-wrap: wrap;
   z-index: 1000;
   color: #FFFFFF;
-  text-align: right;
-  font-size: 4rem;
 }
 .carousel-description {
   font-family: 'Futura';
