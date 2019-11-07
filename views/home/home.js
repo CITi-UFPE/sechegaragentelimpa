@@ -128,6 +128,8 @@ $(document).ready(function () {
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 10000,
   });
 
   //carrega imagens
@@ -242,6 +244,17 @@ setInterval(function setImage(){
     autoplay: true
   });
 
+  const morphingColorTop = anime({
+    targets: '#wave_top',
+    fill: 'rgba(0,0,0,0.48)',
+    delay: 7000,
+    loop: true,
+    direction: 'alternate',
+    duration: 5000,
+    autoplay: true
+  })
+
+
   const morphingWaveBottom = anime({
     targets: '#wave_bottom',
     d: [
@@ -253,3 +266,13 @@ setInterval(function setImage(){
     direction: 'alternate',
     autoplay: true
   });
+
+  const morphingColorBottom = anime({
+    targets: '#wave_bottom',
+    fill: 'rgba(0,0,0,0.48)',
+    delay: 7000,
+    loop: true,
+    direction: 'alternate',
+    duration: 5000,
+    autoplay: true
+  })
