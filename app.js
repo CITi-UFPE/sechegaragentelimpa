@@ -45,6 +45,19 @@ const db = firebase.database();
 
 // app.use(redirectToHTTPS());
 
+
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV === 'production') {
+      if (req.headers.host === 'sechegaragentelimpa.herokuapp.com')
+          return res.redirect(301, 'https://www.sechegaragentelimpa.com.br');
+      if (req.headers['x-forwarded-proto'] !== 'https')
+          return res.redirect('https://' + req.headers.host + req.url);
+      else
+          return next();
+  } else
+      return next();
+});
+
 app.get('/', (req, res) => {
   try {
     res.sendFile(getViewPath('home'));
@@ -63,7 +76,8 @@ app.post('/', async (req, res) => {
     } else {
       await db.ref('positions/').child(key).set({
         lat: req.body.lat,
-        long: req.body.long
+        long: req.body.long,
+        list: req.body.list
       });
       res.send('created');
     }
@@ -76,25 +90,6 @@ app.post('/', async (req, res) => {
 app.get('/politica-de-privacidade', (req, res) => {
   try {
     res.sendFile(getViewPath('politica-de-privacidade'));
-  } catch (err) {
-    console.log(err);
-    res.status(500).send(err);
-  }
-});
-
-app.post('/', (req, res) => {
-  try {
-    const key = req.body.lat.toString().replace('.', ',') + req.body.lat.toString().replace('.', ',')
-    if (req.body.remove) {
-      db.ref('positions/').child(key).remove();
-      res.send('deleted');
-    } else {
-      db.ref('positions/').child(key).set({
-        lat: req.body.lat,
-        long: req.body.long
-      });
-      res.send('added');
-    }
   } catch (err) {
     console.log(err);
     res.status(500).send(err);

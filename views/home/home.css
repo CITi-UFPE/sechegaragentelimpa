@@ -188,9 +188,12 @@ main {
   display: flex;
   width: 100%;
   height: 100vh;
-  position: relative;
   align-items: center;
   justify-content: space-around;
+}
+
+.carousel-wrapper{
+  position:relative;
 }
 .carousel-image{
   width: 100%;
@@ -209,6 +212,7 @@ main {
   z-index: 1000;
   color: #FFFFFF;
   text-align: right;
+  font-size: 4rem;
 }
 .carousel-description {
   font-family: 'Futura';
@@ -580,7 +584,7 @@ and (max-width : 599px){
   line-height: 1.0;
 }
 
-#modal-send-button{
+#modal-button{
   background-color: var(--green);
   color: #FFFFFF;
   border: none;
@@ -589,6 +593,12 @@ and (max-width : 599px){
   font-size: 0.9rem;
   margin-top: 10px;
 }
+
+.list {
+  padding-left: 20px
+}
+
+
 /*///////////////// FOOTER ///////////////////*/
 .footer-section .footer-waves {
   height: 180px;

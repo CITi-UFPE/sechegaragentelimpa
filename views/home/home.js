@@ -1,35 +1,4 @@
-const gel = el => document.querySelector(el);
-
-// const gel = el => document.querySelector(el);
-
-// window.fbAsyncInit = async () => {
-//   FB.init({
-//     appId: '1329423883914707',
-//     autoLogAppEvents: true,
-//     xfbml: true,
-//     version: 'v1.0'
-//   });
-//   gel('.fb-login-button').addEventListener('click', () => {
-//     FB.login((res) => {
-//       if (!res || !res.authResponse) return;
-//       const id = res.authResponse.userID;
-//       const userImgSrc = `https://graph.facebook.com/${id}/picture?type=normal`;
-//       FB.api(id, async (res) => {
-//         const userName = res.name;
-//         const response = await axios.post('/user', {
-//           id: id,
-//           img: userImgSrc,
-//           name: userName,
-//         });
-//       });
-//     });
-//   });
-// };
-
-
-
-
-// Slick
+// ==================== Mapa ====================
 let mymap = L.map('mapid').setView([-8.704159, -35.079526], 13);
 
 let myIcon = L.icon({
@@ -49,15 +18,16 @@ const tiles = async () => {
 
   Object.values(positions.data).map((position) => {
     const marker = L.marker([position.lat, position.long], { icon: myIcon, draggable: true }).addTo(mymap);
+    marker.bindPopup(`
+    <div class="modal">
+      Essa região precisa de:
+      <ul>
+      ${position.list.map((item) => `<li>${item}</li>`).join('')}
+      </ul>
+    </div>
+    `)
     marker.addEventListener('click', (e) => {
-      const remove = true;
-
-      const res = axios.post('/', {
-        remove,
-        lat: marker._latlng.lat,
-        long: marker._latlng.lng,
-      });
-      mymap.removeLayer(marker);
+      marker.openPopup();
     });
   });
 }
@@ -72,7 +42,7 @@ window.saveMarker = async (lat, long) => {
       list.push(i.name)
     }
     await axios.post('/?problem=true', { 
-      item: list,
+      list: list,
       lat: lat,
       long: long,
     });
@@ -90,23 +60,23 @@ mymap.on('click', async (e) => {
   <div class="modal">
     <p class="modal-title">Do que você precisa?</p>
     <div class="modal-checkbox">
-      <input type="checkbox" class="checkbox" name="pessoas">
-      <label for="pessoas">Pessoas</label>
-      <input type="checkbox" class="checkbox" name="epi">
-      <label for="epi">Equipamento de proteção Individual</label>
-      <input type="checkbox" class="checkbox" name="transporte">
-      <label for="transporte">Transporte</label>
+      <input type="checkbox" class="checkbox" name="Pessoas">
+      <label for="Pessoas">Pessoas</label>
+      <input type="checkbox" class="checkbox" name="Equipamento de Proteção Individual">
+      <label for="Equipamento de Proteção Individual">Equipamento de Proteção Individual</label>
+      <input type="checkbox" class="checkbox" name="Transporte">
+      <label for="Transporte">Transporte</label>
     </div>
-    <button id="modal-send-button" onclick="window.saveMarker(${lat}, ${long})">Enviar</button>
+    <button id="modal-button" onclick="window.saveMarker(${lat}, ${long})">Enviar</button>
   </div>
   `).openPopup();
 
   // Fecha Popup
-  const submitButton = document.getElementById('modal-send-button')
+  const submitButton = document.getElementById('modal-button')
   L.DomEvent.addListener(submitButton, 'click', function (e) {
     marker.closePopup();
   });
-  
+
   marker.addEventListener('click', (e) => {
     const remove = true;
 
@@ -119,7 +89,7 @@ mymap.on('click', async (e) => {
   });
 
 });
-
+// Slick
 $(document).ready(function () {
   $('.carousel').slick({
     arrows: false,
@@ -131,36 +101,10 @@ $(document).ready(function () {
     autoplay: true,
     autoplaySpeed: 10000,
   });
-
-  //carrega imagens
-  var ref = firebase.database().ref("users");
-  ref.on("child_added", function(snapshot) {
-    $("#add-mosaic-images").append("<div class=\"mosaic-item\"><img title=\""+snapshot.val().name+"\" class=\"mosaic-image\" src=\""+snapshot.val().profile_picture+"?type=normal\"></div>");
-  });
-
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // [START_EXCLUDE]
-      document.getElementById('login-btn').hidden = true;
-      document.getElementById('logout-btn').hidden = false;
-      var ref = firebase.database().ref('users/' + user.uid);
-      ref.set({
-          name: user.displayName,
-          email: user.email,
-          profile_picture: user.photoURL
-        });
-        console.log(user);
-      // [END_EXCLUDE]
-    } else {
-      // User is signed out.
-      // [START_EXCLUDE]
-      document.getElementById('login-btn').hidden = false;
-      document.getElementById('logout-btn').hidden = true;
-      // [END_EXCLUDE]
-    }
-  });
 });
 
+
+// Facebook
 document.querySelector('#login-btn').addEventListener('click', function(e) {
   firebase.auth().signOut();
   e.preventDefault();
@@ -204,8 +148,64 @@ document.querySelector('#logout-btn').addEventListener('click', function(e) {
   firebase.auth().signOut();
 });
 
+// const gel = el => document.querySelector(el);
+
+// window.fbAsyncInit = async () => {
+//   FB.init({
+//     appId: '1329423883914707',
+//     autoLogAppEvents: true,
+//     xfbml: true,
+//     version: 'v1.0'
+//   });
+//   gel('.fb-login-button').addEventListener('click', () => {
+//     FB.login((res) => {
+//       if (!res || !res.authResponse) return;
+//       const id = res.authResponse.userID;
+//       const userImgSrc = `https://graph.facebook.com/${id}/picture?type=normal`;
+//       FB.api(id, async (res) => {
+//         const userName = res.name;
+//         const response = await axios.post('/user', {
+//           id: id,
+//           img: userImgSrc,
+//           name: userName,
+//         });
+//       });
+//     });
+//   });
+// };
+
 
 //Mosaic
+$(document).ready(function () {
+  //carrega imagens
+  var ref = firebase.database().ref("users");
+  ref.on("child_added", function(snapshot) {
+    $("#add-mosaic-images").append("<div class=\"mosaic-item\"><img title=\""+snapshot.val().name+"\" class=\"mosaic-image\" src=\""+snapshot.val().profile_picture+"?type=normal\"></div>");
+  });
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // [START_EXCLUDE]
+      document.getElementById('login-btn').hidden = true;
+      document.getElementById('logout-btn').hidden = false;
+      var ref = firebase.database().ref('users/' + user.uid);
+      ref.set({
+          name: user.displayName,
+          email: user.email,
+          profile_picture: user.photoURL
+        });
+        console.log(user);
+      // [END_EXCLUDE]
+    } else {
+      // User is signed out.
+      // [START_EXCLUDE]
+      document.getElementById('login-btn').hidden = false;
+      document.getElementById('logout-btn').hidden = true;
+      // [END_EXCLUDE]
+    }
+  });
+});
+
 /*
 let lastId = 48;
 let lastModify = -1;
