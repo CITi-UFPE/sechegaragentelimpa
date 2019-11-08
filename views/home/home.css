@@ -200,8 +200,8 @@ main {
 @media only screen
 and (max-width: 599px){
   .slick-dots{
-    width: 35%;
-    left: 32.5%;
+    width: 50%!important;
+    left: 25%!important;
   }
   .waves {
     height: 100%;
@@ -282,6 +282,32 @@ and (max-width : 599px){
       }
 }
 
+/* Tablets ---------------- */
+
+/* Tablet Portrait */
+@media only screen 
+and (min-device-width: 600px)
+and (max-device-width: 1200px) 
+and (orientation : portrait){
+  .slick-dots{
+    width: 30%!important;
+    left: 35%!important;
+  }
+}
+
+
+/* iPad Pro Portrait ------------------ */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .slick-dots{
+      width: 30%!important;
+      left: 35%!important;
+    }
+}
+
 
 /* ##### CAMPAING SECTION ###### */
  
@@ -296,14 +322,33 @@ and (max-width : 599px){
   /* width: 100vw; */
 }
 
-.oil-splatter {
+.oil-splatter1 {
   position: absolute;
-  left: 35%;
-  top: 11%;
+  left: 30%;
+  top: 0%;
   width: 100%;
-  max-width: 700px;
-  opacity: 0.3;
-  transform: rotate(-60deg) scale(0.8);
+  max-width: 100px;
+}
+.oil-splatter2 {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+  width: 100%;
+  max-width: 50px;
+}
+.oil-splatter3 {
+  position: absolute;
+  left: 29%;
+  top: 35%;
+  width: 100%;
+  max-width: 20px;
+}
+.oil-splatter4 {
+  position: absolute;
+  left: 55%;
+  top: 35%;
+  width: 100%;
+  max-width: 400px;
 }
 
 .title {
@@ -345,10 +390,27 @@ and (max-width: 599px){
     width: 100%;
   }
 
-  .oil-splatter {
-    left: 10%;
-    top: 11%;
+  .oil-splatter1 {
+    left: 30%;
+    top: 0%;
+    max-width: 60px;
   }
+  .oil-splatter2 {
+    left: 0%;
+    top: 32%;
+    max-width: 30px;
+  }
+  .oil-splatter3 {
+    left: 60%;
+    top: 35%;
+    max-width: 20px;
+  }
+  .oil-splatter4 {
+    left: 30%;
+    top: 50%;
+    max-width: 200px;
+  }
+
 }
 /* Smartphones P (portrait) ---------------- */
 @media only screen 
@@ -360,6 +422,7 @@ and (max-width : 330px){
   .text {
     font-size: 1rem;
   }
+
 }
 
 /* Smartphones M (portrait) ---------------- */
@@ -373,6 +436,7 @@ and (max-width : 399px){
   .text {
     font-size: 1.3rem;
   }
+  
 }
 
 /* Smartphones L (portrait) ---------------- */
@@ -604,7 +668,7 @@ and (orientation : portrait){
   margin: 0 8%;
 }
 .share-text-section .title {
-  font-size: .3em;
+  font-size: 3rem;
 }
 
 .share-images-section {
@@ -689,6 +753,7 @@ and (orientation : portrait){
 .login-container {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
