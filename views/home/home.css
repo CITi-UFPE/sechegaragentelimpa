@@ -775,6 +775,150 @@ and (orientation : portrait){
     }
 }
 
+/* #### SHARE-TEXT SECTION */
+
+.share-text-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+  position: relative;
+}
+.share-oil {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  width: 100%;
+  max-width: 120px;
+  transform: rotate(-20deg);
+  z-index: -1;
+}
+.share-oil2 {
+  top: 0%;
+  left: 60%;
+  position: absolute;
+  width: 100%;
+  max-width: 200px;
+}
+.share-text-section .title {
+  font-size: 6rem;
+}
+.share-text-section .text {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Smartphones General ---------------- */
+@media only screen
+and (max-width: 599px){
+  .share-oil {
+    top: 5%;
+    left: -10%;
+    max-width: 80px;
+    transform: rotate(-20deg);
+  }
+  .share-oil2 {
+    left: 35%;
+    top: -5%;
+    max-width: 180px;
+  }
+}
+/* Smartphones P (portrait) ---------------- */
+@media only screen 
+and (max-width : 330px){
+  .share-text-section .title {
+    font-size: 3rem;
+  }
+}
+
+/* Smartphones M (portrait) ---------------- */
+@media only screen 
+and (min-width : 331px)
+and (max-width : 399px){
+  .share-text-section .title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Smartphones L (portrait) ---------------- */
+@media only screen 
+and (min-width : 400px)
+and (max-width : 599px){
+  .share-text-section .title {
+    font-size: 3.5rem;
+  }
+  .share-oil {
+    max-width: 60px;
+    transform: rotate(-20deg);
+  }
+}
+
+/* Tablets ---------------- */
+
+/* Tablet Portrait */
+@media only screen 
+and (min-device-width: 600px)
+and (max-device-width: 1200px) 
+and (orientation : portrait){
+  .share-text-section {
+    width: 100%;
+  }
+}
+
+
+/* ##### SHARE-IMAGES SECTION #####*/
+.share-images-section {
+  margin: 40px 0;
+}
+
+.share-images-section .text p {
+  margin: 0 8% 40px 8%;
+}
+
+/* Smartphones General ---------------- */
+@media only screen
+and (max-width: 599px){
+
+}
+/* Smartphones P (portrait) ---------------- */
+@media only screen 
+and (max-width : 330px){
+
+}
+
+/* Smartphones M (portrait) ---------------- */
+@media only screen 
+and (min-width : 331px)
+and (max-width : 399px){
+
+}
+
+/* Smartphones L (portrait) ---------------- */
+@media only screen 
+and (min-width : 400px)
+and (max-width : 599px){
+
+}
+
+/* Tablets ---------------- */
+
+/* Tablet Portrait */
+@media only screen 
+and (min-device-width: 600px)
+and (max-device-width: 1200px) 
+and (orientation : portrait){
+
+}
+
+
+/* iPad Pro Portrait ------------------ */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+}
 
 /* #### DATA SECTION ##### */
 
@@ -816,20 +960,7 @@ and (orientation : portrait){
   }
 } */
 
-.share-text-section {
-  margin: 0 8%;
-}
-.share-text-section .title {
-  font-size: 3rem;
-}
 
-.share-images-section {
-  margin: 40px 0;
-}
-
-.share-images-section .text p {
-  margin: 0 8% 40px 8%;
-}
 
 /*//////////////////// STYLE SLICK ///////////////////*/
 .slick-track{
