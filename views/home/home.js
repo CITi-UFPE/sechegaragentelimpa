@@ -142,6 +142,13 @@ document.querySelector('#login-btn').addEventListener('click', function(e) {
   //  The user link will fail if the user has already been created, so catch the error and sign in.
 });
 
+// Botão 'Pedir Ajuda'
+document.querySelector('#help-button').addEventListener('click', e => {
+  e.preventDefault();
+
+  console.log('Faz alguma coisa');
+});
+
 document.querySelector('#logout-btn').addEventListener('click', function(e) {
   e.preventDefault();
   e.stopPropagation();
@@ -231,6 +238,8 @@ setInterval(function setImage(){
 }, 750);
 */
 
+
+  // Wave Animation
   const morphingWaveTop = anime({
     targets: '#wave_top',
     d: [

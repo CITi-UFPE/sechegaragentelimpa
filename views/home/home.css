@@ -22,6 +22,8 @@
 
 html{
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -281,10 +283,27 @@ and (max-width : 599px){
 }
 
 
+/* ##### CAMPAING SECTION ###### */
+ 
 .campaign-section {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 0 8% 40px 8%;
+  position: relative;
+  overflow: hidden;
+  /* width: 100vw; */
+}
+
+.oil-splatter {
+  position: absolute;
+  left: 35%;
+  top: 11%;
+  width: 100%;
+  max-width: 700px;
+  opacity: 0.3;
+  transform: rotate(-60deg) scale(0.8);
 }
 
 .title {
@@ -292,25 +311,256 @@ and (max-width : 599px){
   font-family: 'El camino';
   font-weight: normal;
   color: var(--green);
-  font-size: 2.5rem;
-  width: 100%;
+  font-size: 5.5rem;
+  width: 65%;
+  margin: 80px auto 40px auto;
+  letter-spacing: 2px;
 }
 
 .text {
   font-family: 'Futura';
   color: var(--gray);
   line-height: 1.3;
-  width: 100%;
-  font-size: 0.9rem;
+  width: 65%;
+  margin-right: auto;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  /* font-weight: bold; */
+  text-align: left;
 }
+
+/* Smartphones General ---------------- */
+@media only screen
+and (max-width: 599px){
+  .campaign-section {
+    margin-bottom: 20px;
+  }
+
+  .title{
+    margin: 50px auto 20px;
+    width: 100%;
+  }
+
+  .text {
+    width: 100%;
+  }
+
+  .oil-splatter {
+    left: 10%;
+    top: 11%;
+  }
+}
+/* Smartphones P (portrait) ---------------- */
+@media only screen 
+and (max-width : 330px){
+  .title {
+    font-size: 2.1rem;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+}
+
+/* Smartphones M (portrait) ---------------- */
+@media only screen 
+and (min-width : 331px)
+and (max-width : 399px){
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .text {
+    font-size: 1.3rem;
+  }
+}
+
+/* Smartphones L (portrait) ---------------- */
+@media only screen 
+and (min-width : 400px)
+and (max-width : 599px){
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .text {
+    font-size: 1.5rem;
+  }
+}
+/* Iphone X ---------------- */
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) {
+    .text {
+      font-size: 1.6rem;
+    }
+}
+
+/* Tablets ---------------- */
+
+/* Tablet Portrait */
+@media only screen 
+and (min-device-width: 600px)
+and (max-device-width: 1200px) 
+and (orientation : portrait){
+  .title {
+    width: 100%;
+    font-size: 5rem;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-size: 2rem;
+  }
+}
+
+
+/* iPad Pro Portrait ------------------ */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .title {
+      width: 100%;
+      font-size: 7rem;
+      margin-bottom: 20px;
+    }
+  
+    .text {
+      font-size: 2rem;
+    }
+}
+
+
+/* #### MAP SECTION ##### */
 
 .map-section {
   margin: 0 8%;
 }
 
 .map-section > .title {
-  font-size: 1.2rem;
+  font-size: 2.6rem;
+  width: 80%;
+  /* margin-left: auto; */
+  /* margin-right: 0; */
+  margin: 50px 0 60px auto;
+  text-align: right;
 }
+
+#mapid {
+  height: 400px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 5px 5px 8px rgba(65, 77, 184, 0.171);
+  margin-bottom: 60px;
+}
+
+#help-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin-top: -40px;
+  width: 170px;
+  padding: 13px 5px;
+
+  border: none;
+  border-radius: 2px;
+  /* box-shadow: 3px 3px 8px rgba(65, 77, 184, 0.171); */
+  /* background-color: #2FB4A2; */
+  background: url(../../static/image/help-button.svg);
+  background-position: center;
+
+  font-size: 1.1rem;
+  font-family: 'Futura';
+  color: white;
+
+  cursor: pointer;
+
+  transition-delay: .1s;
+  transition-duration: .2s;
+}
+
+#help-button svg {
+  fill: white;
+  margin-right: 13px;
+}
+
+#help-button:hover {
+  background-color: rgb(80, 185, 171);
+  transform: translateY(-3px);
+}
+
+/* Smartphones General ---------------- */
+@media only screen
+and (max-width: 599px){
+  .map-section > .title {
+    width: 100%;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+}
+/* Smartphones P (portrait) ---------------- */
+@media only screen 
+and (max-width : 330px){
+  .map-section > .title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Smartphones M (portrait) ---------------- */
+@media only screen 
+and (min-width : 331px)
+and (max-width : 399px){
+  .map-section > .title {
+    font-size: 1.4rem;
+  }
+}
+
+/* Smartphones L (portrait) ---------------- */
+@media only screen 
+and (min-width : 400px)
+and (max-width : 599px){
+  .map-section > .title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Tablets ---------------- */
+
+/* Tablet Portrait */
+@media only screen 
+and (min-device-width: 600px)
+and (max-device-width: 1200px) 
+and (orientation : portrait){
+  .map-section > .title {
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+}
+
+
+/* iPad Pro Portrait ------------------ */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .map-section > .title {
+      font-size: 3rem;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+}
+
+
+
+/* #### DATA SECTION ##### */
 
 .data-section {
   background-image: url('/static/image/oleo-praia-al12x.png');
@@ -342,21 +592,19 @@ and (max-width : 599px){
   font-size: 2rem;
 }
 
-#mapid {
-  height: 500px;
-  width: 100%;
-  
-}
-
+/* 
 @media(min-width: 768px){
   .text {
     font-size: 1rem;
     text-align: center;
   }
-}
+} */
 
 .share-text-section {
   margin: 0 8%;
+}
+.share-text-section .title {
+  font-size: .3em;
 }
 
 .share-images-section {
