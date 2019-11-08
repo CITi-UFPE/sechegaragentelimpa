@@ -622,6 +622,158 @@ and (orientation : portrait){
     }
 }
 
+/* #### CLEANING SECTION #### */
+
+.cleaning-section {
+  width: 100%;
+  height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+.oil-cleaning {
+  position: absolute;
+  width: 100%;
+  max-width: 800px;
+  top: -10%;
+  z-index: 1;
+}
+.oil-cleaning2{
+  position: absolute;
+  width: 100%;
+  max-width: 100px;
+  top: 70%;
+  left: 30%;
+}
+.div-cleaning {
+  width: 100%;
+  max-width: 1050px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 3;
+}
+
+.cleaning-images-1 {
+  position: absolute;
+  width: 70%;
+  max-width: 590px;
+  margin: 20px;
+  left: -5%;
+  top: 5%;
+}
+
+.cleaning-images-2 {
+  position: absolute;
+  width: 70%;
+  max-width: 550px;
+  margin: 20px;
+  right: -3%;
+  bottom: 4%;
+}
+
+/* Smartphones General ---------------- */
+@media only screen
+and (max-width: 599px){
+  .oil-cleaning2{
+    width: 30%;
+    max-width: 300px;
+    top: 50%;
+    left: 60%;
+    z-index: 5;
+  }
+  .cleaning-images-1 {
+    width: 85%;
+    max-width: 590px;
+    left: 0%;
+    top: 3%;
+  }
+
+  .cleaning-images-2 {
+    width: 85%;
+    max-width: 550px;
+    right: 0%;
+    bottom: 0%;
+  }
+}
+/* Smartphones P (portrait) ---------------- */
+@media only screen 
+and (max-width : 330px){
+  .cleaning-section {
+    margin-top: 30px;
+    height: 500px;
+  }
+}
+
+/* Smartphones M (portrait) ---------------- */
+@media only screen 
+and (min-width : 331px)
+and (max-width : 399px){
+  .cleaning-section {
+    margin-top: 40px;
+    height: 580px;
+  }
+}
+
+/* Smartphones L (portrait) ---------------- */
+@media only screen 
+and (min-width : 400px)
+and (max-width : 599px){
+  .cleaning-section {
+    margin-top: 30px;
+    height: 650px;
+  }
+}
+
+/* Tablets ---------------- */
+
+/* Tablet Portrait */
+@media only screen 
+and (min-device-width: 600px)
+and (max-device-width: 1200px) 
+and (orientation : portrait){
+  .cleaning-section {
+    height: 900px;
+  }
+  .oil-cleaning2{
+    width: 100%;
+    max-width: 100px;
+    top: 65%;
+    left: 10%;
+  }
+  .cleaning-images-1 {
+    width: 70%;
+    max-width: 550px;
+    left: 5%;
+    top: 5%;
+  }
+  .cleaning-images-2 {
+    width: 70%;
+    max-width: 500px;
+    right: 3%;
+    bottom: -5%;
+  }
+}
+
+
+/* iPad Pro Portrait ------------------ */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .oil-cleaning2{
+      width: 100%;
+      max-width: 130px;
+      top: 65%;
+      left: 25%;
+    }
+}
 
 
 /* #### DATA SECTION ##### */
@@ -677,37 +829,6 @@ and (orientation : portrait){
 
 .share-images-section .text p {
   margin: 0 8% 40px 8%;
-}
-
-.cleaning-section {
-  width: 100%;
-  height: 475px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  position: relative;
-}
-.div-cleaning {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-}
-
-.cleaning-images-1 {
-  width: 70%;
-  max-width: 250px;
-  margin: 20px;
-}
-
-.cleaning-images-2 {
-  width: 70%;
-  max-width: 250px;
-  margin: 20px;
 }
 
 /*//////////////////// STYLE SLICK ///////////////////*/
@@ -993,36 +1114,6 @@ and (orientation : portrait){
     height: 1.3rem;
   }
 }
-
-@media (min-width: 950px) {
-  .cleaning-section {
-    width: 100%;
-    height: 610px
-  }
-  .div-cleaning {
-    width: 100%;
-    max-width: 1050px;
-    height: 87%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-  }
-  .cleaning-images-1 {
-    position: absolute;
-    top: 5%;
-    left: 17%;
-    max-width: 350px;
-  }
-  .cleaning-images-2 {
-    position: absolute;
-    bottom: -5%;
-    right: 17%;
-    max-width: 350px;
-  }
-}
-
 
 /*///////////////// ANIMATION ///////////////////*/
 @keyframes fadeIn{
