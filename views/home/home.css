@@ -35,6 +35,10 @@ main {
   margin: 0;
 }
 
+img {
+  pointer-events: none;
+}
+
 /* #### BANNER #### */
 
 .banner{
@@ -871,6 +875,12 @@ and (orientation : portrait){
   margin: 40px 0;
 }
 
+.share-images-section .text {
+  width: 100%;
+  margin: 0 auto!important;
+  text-align: center;
+}
+
 .share-images-section .text p {
   margin: 0 8% 40px 8%;
 }
@@ -932,35 +942,216 @@ and (orientation : portrait){
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  margin: 0 8%;
+  margin: 20px 8%;
+  position: relative;
 }
 
 .data-container{
-  margin: 50px 0 0 0;
+  margin: 120px 0 0 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
 }
 
+.data-container:last-child {
+  margin: 180px 0 0 0;
+}
+
 .data {
-  font-size: 5.5rem;
-  margin: 0;
+  font-size: 12rem;
+  margin-bottom: -20px;
   width: 100%;
 }
 .data-description {
-  font-size: 2rem;
+  font-size: 3.5rem;
 }
 
-/* 
-@media(min-width: 768px){
-  .text {
-    font-size: 1rem;
-    text-align: center;
+.data-oil {
+  position: absolute;
+}
+
+.data-oil1 {
+  top: 10%;
+  left: 14%;
+  width: 100%;
+  max-width: 120px;
+  transform: rotate(-20deg);
+}
+
+.data-oil2 {
+  top: 40%;
+  left: 19%;
+  width: 100%;
+  max-width: 30px;
+  transform: rotate(-20deg);
+}
+
+.data-oil3 {
+  top: 50%;
+  left: 5%;
+  width: 100%;
+  max-width: 60px;
+  transform: rotate(-20deg);
+}
+
+.data-oil4 {
+  top: 70%;
+  right: 20%;
+  width: 100%;
+  max-width: 120px;
+  transform: rotate(45deg);
+}
+
+/* Smartphones General ---------------- */
+@media only screen
+and (max-width: 599px){
+  .data-section {
+    margin: 0px 4%;
+    position: relative;
   }
-} */
 
+  .data-oil1 {
+    top: 30%;
+    left: 34%;
+    max-width: 50px;
+  }
+  
+  .data-oil2 {
+    top: 50%;
+    left: 30%;
+    max-width: 15px;
+  }
+  
+  .data-oil3 {
+    top: 40%;
+    left: 5%;
+    max-width: 30px;
+  }
+  
+  .data-oil4 {
+    top: 95%;
+    right: 18%;
+    max-width: 80px;
+  }
+}
+/* Smartphones P (portrait) ---------------- */
+@media only screen 
+and (max-width : 330px){
+  .data {
+    font-size: 6rem;
+    margin-bottom: -5px;
+  }
+  .data-description {
+    font-size: 2rem;
+  }
 
+  .data-container {
+    margin: 50px 0 0 0;
+  }
+
+  .data-container:last-child {
+    margin: 80px 0 0 0;
+  }
+}
+
+/* Smartphones M (portrait) ---------------- */
+@media only screen 
+and (min-width : 331px)
+and (max-width : 399px){
+  .data {
+    font-size: 6.8rem;
+    margin-bottom: -5px;
+  }
+  .data-description {
+    font-size: 2rem;
+  }
+
+  .data-container {
+    margin: 80px 0 0 0;
+  }
+
+  .data-container:last-child {
+    margin: 80px 0 0 0;
+  }
+}
+
+/* Smartphones L (portrait) ---------------- */
+@media only screen 
+and (min-width : 400px)
+and (max-width : 599px){
+  .data {
+    font-size: 7.5rem;
+    margin-bottom: -5px;
+  }
+  .data-description {
+    font-size: 2rem;
+  }
+
+  .data-container {
+    margin: 50px 0 0 0;
+  }
+
+  .data-container:last-child {
+    margin: 80px 0 0 0;
+  }
+}
+
+/*#### LOGIN SECTION ####*/
+.login-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center!important;
+}
+
+.login-container .text {
+  margin: 0 auto!important;
+  text-align: center;
+}
+
+.fb-login-button {
+  cursor: pointer;
+}
+
+/* #### COMPANIES SECTION #### */
+/* .companies-section {
+  background: url('../../static/image/blob-shape.svg');
+  text-align: center;
+  background-size: 93%;
+  background-repeat: no-repeat;
+  background-position-x: -13%;
+  background-position-y: center;
+  margin: -40px 0;
+  padding-top: 180px;
+  position: relative;
+  height: 150vh;
+}
+
+.companies-section .title {
+  width: 100%;
+  font-size: 6rem;
+  color: white;
+}
+
+.companies-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 100px 0px;
+  width: 80%;
+  margin: 80px auto 0;
+}
+
+.companie {
+  fill: white;
+  opacity: 0.7;
+  width: 100%;
+  max-width: 130px;
+  margin: 0 auto;
+}
+ */
 
 /*//////////////////// STYLE SLICK ///////////////////*/
 .slick-track{
@@ -998,21 +1189,6 @@ and (orientation : portrait){
   -webkit-appearance: none;
   background-image: url('../../static/image/Carrossel.svg');
 }
-
-/*///////////////// MOBILE ///////////////////*/
-
-
-.login-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.fb-login-button {
-  cursor: pointer;
-}
-
 
 /*///////////////// MOSAIC ///////////////////*/
 .mosaic-container {
