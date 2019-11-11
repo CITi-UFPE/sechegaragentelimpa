@@ -10,7 +10,7 @@ Link: https://sechegaragentelimpa.com.br/
 </p>
 <p align="center">
   <a href="https://github.com/CITi-UFPE/sechegaragentelimpa/issues">
-    <img src="https://img.shields.io/github/issues/CITi-UFPE/nordeste-limpo">  
+    <img src="https://img.shields.io/github/issues/CITi-UFPE/sechegaragentelimpa">  
   </a>
   <a href="https://github.com/CITi-UFPE/sechegaragentelimpao/stargazers">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/CITi-UFPE/nordeste-limpo">
