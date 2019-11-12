@@ -180,11 +180,6 @@ document.querySelector('#logout-btn').addEventListener('click', function(e) {
 //     });
 //   });
 // };
-var scene = document.getElementById('.oil-splatter1');
-var parallaxInstance = new Parallax(scene, {
-  relativeInput: true
-});
-
 
 //Mosaic
 $(document).ready(function () {
