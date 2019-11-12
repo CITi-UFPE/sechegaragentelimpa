@@ -76,6 +76,6 @@ node app.js
 ## Contribuições
 
 Sinta-se à vontade de mandar quanto PR's quiser, nossa equipe irá analisar todos e aceitá-los!:green_heart:<br>
-Se surgir alguma dúvida em relação ao projeto, você pode nos encontrar no nosso [Instagram](https://www.instagram.com/citiufpe/?hl=pt-br)
+Se surgir alguma dúvida em relação ao projeto, você pode nos encontrar no nosso [Instagram](https://www.instagram.com/citiufpe/?hl=pt-br).
 
-Obrigado:pig:
+Obrigado:pig::green_heart:
