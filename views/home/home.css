@@ -875,59 +875,14 @@ and (orientation : portrait){
   margin: 40px 0;
 }
 
-/* .share-images-section .text {
+.share-images-section .text {
   width: 100%;
   margin: 0 auto!important;
   text-align: center;
-} */
+}
 
 .share-images-section .text p {
   margin: 0 8% 40px 8%;
-}
-
-/* Smartphones General ---------------- */
-@media only screen
-and (max-width: 599px){
-
-}
-/* Smartphones P (portrait) ---------------- */
-@media only screen 
-and (max-width : 330px){
-
-}
-
-/* Smartphones M (portrait) ---------------- */
-@media only screen 
-and (min-width : 331px)
-and (max-width : 399px){
-
-}
-
-/* Smartphones L (portrait) ---------------- */
-@media only screen 
-and (min-width : 400px)
-and (max-width : 599px){
-
-}
-
-/* Tablets ---------------- */
-
-/* Tablet Portrait */
-@media only screen 
-and (min-device-width: 600px)
-and (max-device-width: 1200px) 
-and (orientation : portrait){
-
-}
-
-
-/* iPad Pro Portrait ------------------ */
-@media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-height: 1366px)
-  and (orientation: portrait)
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-
 }
 
 /* #### DATA SECTION ##### */
