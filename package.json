@@ -20,7 +20,7 @@
     "express-session": "^1.17.0",
     "express-http-to-https": "^1.1.4",
     "firebase": "^7.2.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.7.5",
     "nodemailer": "^6.3.1",
     "passport": "0.2.1",
